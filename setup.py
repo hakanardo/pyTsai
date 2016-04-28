@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
 from distutils.core import *
+import sys
 
 pytsai_ext = Extension(
         'pytsai', [
-        'src/pytsai.c',
+        'src/pytsai-py3.c' if sys.version_info > (3,) else 'src/pytsai-py2.c',
         'src/errors.c',
         'src/tsai/cal_eval.c',
         'src/tsai/cal_main.c',
